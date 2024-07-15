@@ -49,6 +49,9 @@ button:hover {
 .loading {
   font-size: 18px;
   color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar {
@@ -142,11 +145,6 @@ button:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin-top: 50px;
   border-radius: 8px;
-}
-
-.loading {
-  font-size: 18px;
-  color: #007bff;
 }
 
 ul {

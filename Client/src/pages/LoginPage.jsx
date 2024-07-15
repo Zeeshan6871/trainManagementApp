@@ -9,10 +9,12 @@ import "../index.css";
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await axios.post(`${API}/api/auth/login`, {
         username,
@@ -24,31 +26,36 @@ const LoginPage = () => {
       navigate("/");
     } catch (error) {
       toast.error("Login failed");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="container">
-      <ToastContainer />
-      <h1>Login</h1>
-      <form onSubmit={handleLogin}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <>
+      {/* <ToastContainer /> */}
+      <div className="container">
+        <h1>Login</h1>
+        <form onSubmit={handleLogin}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit">Login</button>
+          {loading && <p className="loading">Loging in......</p>}
+        </form>
+      </div>
+    </>
   );
 };
 

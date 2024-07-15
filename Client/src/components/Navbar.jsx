@@ -14,8 +14,9 @@ const NavBar = () => {
     navigate("/login");
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
     navigate(`/bookings/${bookingId}`);
+    e.preventDefault();
   };
   return (
     <nav className="navbar">

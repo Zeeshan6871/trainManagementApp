@@ -12,6 +12,7 @@ import AddTrainPage from "./pages/AddTrainPage";
 import AdminRoute from "./components/AdminRoute";
 import AuthRoute from "./components/AuthRoute";
 import DefaultPage from "./pages/DefaultPage";
+import "react-toastify/dist/ReactToastify.css";
 
 const isAuth = () => {
   const token = localStorage.getItem("token");

@@ -21,7 +21,11 @@ const BookingDetailsPage = () => {
         });
         setBooking(response.data);
       } catch (error) {
-        toast.error("Failed to fetch booking details");
+        if (error.response && error.response.status === 404) {
+          setBooking(null);
+        } else {
+          toast.error("Failed to fetch booking details");
+        }
       } finally {
         setLoading(false);
       }
@@ -40,17 +44,25 @@ const BookingDetailsPage = () => {
   return (
     <div className="container">
       <ToastContainer />
-      <h1>Booking Details</h1>
-      <p>Train: {booking.train_name}</p>
-      <p>Booking ID : {booking_id}</p>
-      <span style={{ color: "red" }}>
-        Remember this Booking ID to track you Booking detials
-      </span>
-      <p>User ID: {booking.user_id}</p>
-      <p>Number of Seats: {booking.no_of_seats}</p>
-      <p>Seat Numbers: {booking.seat_numbers.join(", ")}</p>
-      <p>Arrival Time at Source: {booking.arrival_time_at_source}</p>
-      <p>Arrival Time at Destination: {booking.arrival_time_at_destination}</p>
+      {booking ? (
+        <>
+          <h1>Booking Details</h1>
+          <p>Train: {booking.train_name}</p>
+          <p>Booking ID : {booking_id}</p>
+          <span style={{ color: "red" }}>
+            Remember this Booking ID to track your Booking details
+          </span>
+          <p>User ID: {booking.user_id}</p>
+          <p>Number of Seats: {booking.no_of_seats}</p>
+          <p>Seat Numbers: {booking.seat_numbers.join(", ")}</p>
+          <p>Arrival Time at Source: {booking.arrival_time_at_source}</p>
+          <p>
+            Arrival Time at Destination: {booking.arrival_time_at_destination}
+          </p>
+        </>
+      ) : (
+        <h1>Booking details Not Found</h1>
+      )}
     </div>
   );
 };
