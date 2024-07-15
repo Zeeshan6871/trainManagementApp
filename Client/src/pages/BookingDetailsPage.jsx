@@ -42,6 +42,10 @@ const BookingDetailsPage = () => {
       <ToastContainer />
       <h1>Booking Details</h1>
       <p>Train: {booking.train_name}</p>
+      <p>Booking ID : {booking_id}</p>
+      <span style={{ color: "red" }}>
+        Remember this Booking ID to track you Booking detials
+      </span>
       <p>User ID: {booking.user_id}</p>
       <p>Number of Seats: {booking.no_of_seats}</p>
       <p>Seat Numbers: {booking.seat_numbers.join(", ")}</p>

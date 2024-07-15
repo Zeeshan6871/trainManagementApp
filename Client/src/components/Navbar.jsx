@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../index.css";
 import { isAdmin } from "../App";
 
 const NavBar = () => {
+  const [showinput, setShowinput] = useState(false);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const [bookingId, setbookingId] = useState(null);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");
   };
 
+  const handleSubmit = () => {
+    navigate(`/bookings/${bookingId}`);
+  };
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -55,6 +60,29 @@ const NavBar = () => {
               ) : (
                 ""
               )}
+              <li
+                className="nav-item"
+                onClick={(e) => {
+                  setShowinput((prev) => !prev);
+                }}
+              >
+                Booking Details
+                {showinput && (
+                  <form
+                    onClick={(e) => e.stopPropagation()}
+                    style={{ position: "absolute", top: "2rem" }}
+                    onSubmit={handleSubmit}
+                  >
+                    <input
+                      type="number"
+                      value={bookingId}
+                      placeholder="Enter Booking ID"
+                      onChange={(e) => setbookingId(e.target.value)}
+                    />
+                    <button type="submit">Find Details</button>
+                  </form>
+                )}
+              </li>
               <li className="nav-item">
                 <button onClick={handleLogout} className="nav-link btn-link">
                   Logout
