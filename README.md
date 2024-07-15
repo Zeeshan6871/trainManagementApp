@@ -139,6 +139,12 @@ railway-management-system/
   ```
 
 - **Login User**
+- **User Credential**
+  ```
+  username = zeeshan123@gmail.com
+  password = 1234
+  ```
+  
   ```http
   POST /api/auth/login
   Request:
