@@ -5,8 +5,8 @@ import { API } from "../config/Api";
 import "../index.css";
 
 const TrainAvailabilityPage = () => {
-  const [source, setSource] = useState("");
-  const [destination, setDestination] = useState("");
+  const [source, setSource] = useState("Mumbai");
+  const [destination, setDestination] = useState("Pune");
   const [trains, setTrains] = useState([]);
   const [loading, setLoading] = useState(false);
   const [notTrain, setNoTrain] = useState(false);
@@ -24,7 +24,6 @@ const TrainAvailabilityPage = () => {
         setTrains([]);
         return;
       }
-      //   setNoTrain(true);
       setTrains(response.data);
       setNoTrain(false);
     } catch (error) {
@@ -42,26 +41,28 @@ const TrainAvailabilityPage = () => {
     <div className="container">
       <h1>Train Availability</h1>
       <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Source"
+        <select
           value={source}
           onChange={(e) => setSource(e.target.value)}
           required
-        />
-        <input
-          type="text"
-          placeholder="Destination"
+        >
+          <option value="Mumbai">Mumbai</option>
+          <option value="Delhi">Delhi</option>
+        </select>
+        <select
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
           required
-        />
+        >
+          <option value="Pune">Pune</option>
+          <option value="Kolkata">Kolkata</option>
+        </select>
         <button type="submit">Search</button>
       </form>
       {loading ? (
         <div className="loading">Loading...</div>
       ) : notTrain ? (
-        <div>No Train Found </div>
+        <div>No Train Found</div>
       ) : (
         <ul>
           {trains.map((train) => (

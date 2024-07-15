@@ -9,10 +9,12 @@ import "../index.css";
 const BookingPage = () => {
   const { train_id } = useParams();
   const [no_of_seats, setNoOfSeats] = useState(1);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleBook = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
@@ -23,20 +25,23 @@ const BookingPage = () => {
         }
       );
       const seats = response.data.seatNumbers.join(",");
-      console.log(response.data);
+      // console.log(response.data);
       toast.success(`Booking successful! Seat numbers: ${seats}`);
       navigate(`/bookings/${response.data.booking_id}`);
     } catch (error) {
       toast.error("Booking failed");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <ToastContainer />
       <div className="container">
+        <ToastContainer />
         <h1>Book Seats</h1>
         <form onSubmit={handleBook}>
+          <label htmlFor="">Enter How many Seat you want to book</label>
           <input
             type="number"
             min="1"
@@ -46,6 +51,7 @@ const BookingPage = () => {
           />
           <button type="submit">Book</button>
         </form>
+        {loading && <p className="loading">Loading....</p>}
       </div>
     </>
   );

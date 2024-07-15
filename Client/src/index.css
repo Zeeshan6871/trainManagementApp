@@ -13,6 +13,55 @@ body {
   font-style: normal;
 }
 
+/* index.css */
+.hero {
+  background: url("https://source.unsplash.com/random/1600x900?train") no-repeat
+    center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.features {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 1rem;
+}
+
+.feature {
+  margin-bottom: 1rem;
+}
+
+.testimonial {
+  background: #f8f9fa;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.testimonial h2 {
+  margin-bottom: 2rem;
+}
+
+.testimonial p {
+  font-style: italic;
+}
+
 h1 {
   color: #333;
   font-family: "Baskervville SC", serif;
@@ -168,4 +217,23 @@ ul {
 
 .train-item:hover {
   background-color: #f0f0f0;
+}
+
+select {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  appearance: none;
+}
+
+select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
