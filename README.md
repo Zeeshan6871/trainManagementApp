@@ -1,4 +1,4 @@
-```markdown
+
 # Railway Management System
 
 ## Overview
@@ -17,8 +17,9 @@ This project is a railway management system that allows users to search for trai
 - Frontend: React.js
 
 ## Project Structure
+
 ```
-railway-management-system/
+trainManagementApp/
 ├── backend/
 │   ├── config/
 │   │   ├── config.js
