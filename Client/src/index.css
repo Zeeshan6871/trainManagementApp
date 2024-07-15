@@ -71,6 +71,7 @@ button:hover {
 .navbar-nav {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 

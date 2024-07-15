@@ -11,6 +11,7 @@ import { ToastContainer } from "react-toastify";
 import AddTrainPage from "./pages/AddTrainPage";
 import AdminRoute from "./components/AdminRoute";
 import AuthRoute from "./components/AuthRoute";
+import DefaultPage from "./pages/DefaultPage";
 
 const isAuth = () => {
   const token = localStorage.getItem("token");
@@ -50,6 +51,7 @@ function App() {
               <AdminRoute isAdmin={isAdmin} element={<AddTrainPage />} />
             }
           />
+          <Route path="*" element={<DefaultPage />} />
         </Routes>
       </Router>
     </>
