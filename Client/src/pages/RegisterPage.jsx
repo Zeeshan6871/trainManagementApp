@@ -9,16 +9,20 @@ import "../index.css";
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await axios.post(`${API}/api/auth/register`, { username, password });
       toast.success("Registration successful!");
       navigate("/login");
     } catch (error) {
       toast.error("Registration failed");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,6 +46,7 @@ const RegisterPage = () => {
           required
         />
         <button type="submit">Register</button>
+        {loading && <p className="loading">Registering....</p>}
       </form>
     </div>
   );

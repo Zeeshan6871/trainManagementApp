@@ -63,7 +63,8 @@ const NavBar = () => {
               )}
               <li
                 className="nav-item"
-                onClick={(e) => {
+                style={{ color: "white", cursor: "pointer" }}
+                onClick={() => {
                   setShowinput((prev) => !prev);
                 }}
               >

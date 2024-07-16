@@ -14,7 +14,7 @@ import AuthRoute from "./components/AuthRoute";
 import DefaultPage from "./pages/DefaultPage";
 import "react-toastify/dist/ReactToastify.css";
 
-const isAuth = () => {
+export const isAuth = () => {
   const token = localStorage.getItem("token");
   return !!token;
 };

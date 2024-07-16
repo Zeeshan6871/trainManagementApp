@@ -52,7 +52,7 @@ const LoginPage = () => {
             required
           />
           <button type="submit">Login</button>
-          {loading && <p className="loading">Loging in......</p>}
+          {loading && <p className="loading">Logging in......</p>}
         </form>
       </div>
     </>

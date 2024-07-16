@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Button, Row, Col, Card } from "react-bootstrap";
 import "../index.css";
 import { Link } from "react-router-dom";
+import { isAuth } from "../App";
 
 function HomePage() {
   return (
@@ -13,12 +14,26 @@ function HomePage() {
             Your journey starts here. Book your train tickets with ease and
             convenience.
           </p>
-          <Button variant="primary" size="lg" className="ml-5">
-            <Link to={"/register"}>Get Started</Link>
-          </Button>
-          <Button variant="secondary" size="lg" href="/login">
-            <Link to={"/login"}>Login</Link>
-          </Button>
+          {!isAuth() ? (
+            <>
+              <Button variant="primary" size="lg" className="ml-5">
+                <Link to={"/register"} style={{ color: "white" }}>
+                  Get Started
+                </Link>
+              </Button>
+              <Button variant="secondary" size="lg" href="/login">
+                <Link to={"/login"} color="white">
+                  Login
+                </Link>
+              </Button>
+            </>
+          ) : (
+            <Button variant="primary" size="lg" className="ml-5">
+              <Link to={"/trains/availability"} style={{ color: "white" }}>
+                Check Train Availability
+              </Link>
+            </Button>
+          )}
         </Container>
       </div>
 
