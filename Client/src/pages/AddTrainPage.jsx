@@ -12,9 +12,11 @@ const AddTrainPage = () => {
   const [seatCapacity, setSeatCapacity] = useState("");
   const [arrivalTimeSource, setArrivalTimeSource] = useState("");
   const [arrivalTimeDestination, setArrivalTimeDestination] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleAddTrain = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const token = localStorage.getItem("token");
       const response = await axios.post(
@@ -34,6 +36,8 @@ const AddTrainPage = () => {
       toast.success("Train added successfully!");
     } catch (error) {
       toast.error("Failed to add train");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -85,6 +89,7 @@ const AddTrainPage = () => {
         />
         <button type="submit">Add Train</button>
       </form>
+      {loading && <p className="loading">Adding Train...</p>}
     </div>
   );
 };
