@@ -1,3 +1,4 @@
+---
 
 # Railway Management System
 
@@ -77,7 +78,7 @@ trainManagementApp/
 
    - Navigate to the backend directory:
      ```bash
-     cd Server
+     cd backend
      ```
 
    - Install dependencies:
@@ -106,7 +107,7 @@ trainManagementApp/
 
    - Navigate to the frontend directory:
      ```bash
-     cd ../Client
+     cd ../frontend
      ```
 
    - Install dependencies:
@@ -250,3 +251,11 @@ trainManagementApp/
     "arrival_time_at_destination": "2023-01-01 20:30:00"
   }
   ```
+
+## Demo Video
+
+[![Demo Video](https://img.youtube.com/vi/1gVX4oC-_cHF2XEZjsLGrI5gswd-qXinL/0.jpg)](https://drive.google.com/file/d/1gVX4oC-_cHF2XEZjsLGrI5gswd-qXinL/view?usp=sharing)
+
+---
+
+You can click on the image above to view the demo video of the Railway Management System.
