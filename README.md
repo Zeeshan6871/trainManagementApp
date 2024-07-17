@@ -2,7 +2,7 @@
 # Railway Management System
 
 ## Overview
-This project is a railway management system that allows users to search for trains between two stations, check seat availability, and book seats in real-time. The system is built using Node.js, Sequelize, MySQL/PostgreSQL, React.js, Redis for caching, and Socket.IO for real-time updates.
+This project is a railway management system that allows users to search for trains between two stations, check seat availability, and book seats in real-time. The system is built using Node.js, Sequelize, MySQL/PostgreSQL, React.js.
 
 ## Features
 - User registration and login
@@ -63,7 +63,7 @@ trainManagementApp/
 ### Prerequisites
 - Node.js
 - MySQL/PostgreSQL
-- Redis
+- sequelize
 
 ### Installation
 
